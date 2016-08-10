@@ -1,0 +1,31 @@
+<h1>Doors</h1>
+
+<button md-fab disableRipple (click)="addNewDoor()">
+  <md-icon>add</md-icon>
+</button>
+
+<div *ngIf="newDoor">
+  <md-card>
+    <md-card-title>Create Door</md-card-title>
+    <md-card-content>
+      <form #newDoorForm="ngForm">
+        <md-input [(ngModel)]="newDoor.name" placeholder="Name" name="name" required></md-input>
+        <h2>Users who can use this door</h2>
+        <md-checkbox disableRipple *ngFor="let user of users" [checked]="isUserChecked(user)" (change)="onUserCheck(user)">{{ user.name }}</md-checkbox>
+      </form>
+    </md-card-content>
+    <md-card-actions>
+      <button disableRipple md-raised-button color="accent" (click)="saveNewDoor()" [disabled]="!newDoorForm.form.valid">Save</button>
+      <button disableRipple md-button color="primary" (click)="cancelNewDoor()">Cancel</button>
+    </md-card-actions>
+  </md-card>
+</div>
+
+<div *ngIf="!newDoor">
+  <md-card *ngFor="let door of doors">
+    <md-card-title>{{ door.name }}</md-card-title>
+    <md-card-actions>
+      <button md-button color="primary" (click)="removeDoor(door)">Remove</button>
+    </md-card-actions>
+  </md-card>
+</div>

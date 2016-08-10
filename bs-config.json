@@ -1,0 +1,9 @@
+{
+  "open": false,
+  "server": {
+    "baseDir": ["./src", "."],
+    "middleware": {
+      "0": null
+    }
+  }
+}

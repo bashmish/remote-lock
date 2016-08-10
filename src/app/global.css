@@ -1,0 +1,9 @@
+h1 {
+  font-size: 30px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  padding: 0 24px;
+}
+
+md-input {
+  width: 100%;
+}

@@ -1,0 +1,24 @@
+.sidenav-header {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 12px;
+  color: #777777;
+  padding: 10px 16px 0 16px;
+}
+
+.sidenav-button {
+  margin-right: 16px;
+}
+
+.toolbar-appname {
+  flex: 1 1 auto;
+}
+
+.toolbar-user {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.toolbar-user md-icon {
+  margin-right: 5px;
+}

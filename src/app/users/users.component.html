@@ -1,0 +1,32 @@
+<h1>Users</h1>
+
+<button md-fab disableRipple (click)="addNewUser()">
+  <md-icon>add</md-icon>
+</button>
+
+<div *ngIf="newUser">
+  <md-card>
+    <md-card-title>Create User</md-card-title>
+    <md-card-content>
+      <form #newUserForm="ngForm">
+        <md-input [(ngModel)]="newUser.name" placeholder="Name" name="name" required></md-input>
+        <md-input [(ngModel)]="newUser.token" placeholder="Token" name="token" required></md-input>
+      </form>
+    </md-card-content>
+    <md-card-actions>
+      <button disableRipple md-raised-button color="accent" (click)="saveNewUser()" [disabled]="!newUserForm.form.valid">Save</button>
+      <button disableRipple md-button color="primary" (click)="cancelNewUser()">Cancel</button>
+    </md-card-actions>
+  </md-card>
+</div>
+
+<div *ngIf="!newUser">
+  <md-card *ngFor="let user of users">
+    <md-card-title>{{ user.name }}</md-card-title>
+    <md-card-content>{{ user.token }}</md-card-content>
+    <md-card-actions>
+      <button md-button color="primary" (click)="removeUser(user)">Remove</button>
+    </md-card-actions>
+  </md-card>
+</div>
+

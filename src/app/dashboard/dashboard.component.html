@@ -1,0 +1,26 @@
+<h1>Dashbooard</h1>
+
+<md-card *ngIf="doors && doors.length === 0">
+  <md-card-title>No Available Doors</md-card-title>
+</md-card>
+
+<md-card *ngIf="doors && doors.length > 0">
+  <md-card-title>Available Doors</md-card-title>
+  <md-card-content>
+    <md-list>
+      <md-list-item *ngFor="let door of doors">
+        <span md-line>{{ door.name }}</span>
+        <div *ngIf="!canUseDoor(door)">
+          <button md-button disabled>Access Denied</button>
+        </div>
+        <div *ngIf="canUseDoor(door)">
+          <div *ngIf="door !== doorInProgress">
+            <button md-raised-button color="accent" *ngIf="!door.isOpen" (click)="openDoor(door)">Open Door</button>
+            <button md-raised-button color="primary" *ngIf="door.isOpen" (click)="closeDoor(door)">Close Door</button>
+          </div>
+          <md-spinner *ngIf="door === doorInProgress"></md-spinner>
+        </div>
+      </md-list-item>
+    </md-list>
+  </md-card-content>
+</md-card>

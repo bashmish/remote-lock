@@ -1,0 +1,27 @@
+<md-sidenav-layout fullscreen>
+
+  <md-sidenav #sidenav mode="side">
+    <md-nav-list>
+      <a md-list-item (click)="sidenav.close()" routerLink="/">Dashboard</a>
+    </md-nav-list>
+    <div class="sidenav-header">Admin</div>
+    <md-nav-list>
+      <a md-list-item (click)="sidenav.close()" routerLink="/users">Users</a>
+      <a md-list-item (click)="sidenav.close()" routerLink="/doors">Doors</a>
+    </md-nav-list>
+  </md-sidenav>
+
+  <md-toolbar color="primary">
+    <button md-icon-button disableRipple (click)="sidenav.toggle()" class="sidenav-butyon">
+      <md-icon>menu</md-icon>
+    </button>
+    <span class="toolbar-appname">Remote Lock</span>
+    <span class="toolbar-user" *ngIf="currentUser">
+      <md-icon>person</md-icon>
+      {{ currentUser.name }}
+    </span>
+  </md-toolbar>
+
+  <router-outlet></router-outlet>
+
+</md-sidenav-layout>
