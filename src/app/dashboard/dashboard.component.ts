@@ -39,7 +39,7 @@ export class DashboardComponent implements OnInit {
     }, 1000);
   }
 
-  private canUseDoor(door: Door): boolean {
+  canUseDoor(door: Door): boolean {
     return this.authService.currentUser && door.userIds.includes(this.authService.currentUser.id);
   }
 
